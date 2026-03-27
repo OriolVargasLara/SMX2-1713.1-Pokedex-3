@@ -1,0 +1,244 @@
+/* CONFIGURACIÓN GENERAL */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* PÁGINA DE INICIO (INDEX) */
+.contenedor-inicio {
+    background: url('../imágenes/kanto-map.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.caja-titulo {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 15px 40px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.caja-titulo h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.lista-inicio {
+    list-style: none;
+    padding: 0;
+    background: rgba(0,0,0,0.4);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.lista-inicio a {
+    color: white;
+    text-decoration: none;
+    line-height: 2;
+}
+
+.lista-inicio a:hover {
+    color: #ffcc00;
+}
+
+/* PÁGINA DE VISTA (POKEMON_VIEW) */
+.view-pokemon {
+    background-color: #f5ead5; /* Color crema de tu imagen */
+    color: black;
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.pokemon-container {
+    max-width: 800px;
+    width: 90%;
+}
+
+.pokemon-sprite {
+    width: 200px;
+    float: left;
+    margin-right: 30px;
+}
+
+.info-principal {
+    overflow: hidden; /* Limpia el float */
+    margin-bottom: 40px;
+}
+
+.badge {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    font-size: 0.8rem;
+}
+
+.fuego { background-color: #F08030; }
+.fantasma { background-color: #705898; }
+.veneno   { background-color: #A040A0; }
+.dragon { background-color: #7038F8; }
+.volador { background-color: #A890F0; }
+.psiquico { background-color: #F85888; }
+.tierra { background-color: #E0C068; }
+.agua { background-color: #6890F0; }
+
+.evoluciones {
+    border-top: 4px double #333;
+    padding-top: 20px;
+}
+
+/* Contenedor que alinea las 3 evoluciones en fila */
+.flex-evos {
+    display: flex;
+    justify-content: center; /* Centra el grupo de evoluciones */
+    align-items: flex-end;    /* Alinea las bases de los Pokémon (suelo común) */
+    gap: 40px;               /* Espacio entre cada evolución */
+    margin-top: 30px;
+}
+
+/* Estilo para cada bloque (Quilava, Typhlosion, Hisui) */
+.evo-link {
+    display: flex;
+    flex-direction: column;  /* Pone la imagen arriba y el texto abajo */
+    align-items: center;     /* Centra el texto respecto a la imagen */
+    text-decoration: none;
+    color: black;
+    width: 200px;            /* Ancho fijo para que todos tengan el mismo espacio */
+}
+
+/* Ajuste de las imágenes para que coincidan con el tamaño de Quilava */
+.evo-link img {
+    width: 100%;             /* La imagen ocupa el ancho del contenedor */
+    max-width: 180px;        /* Tamaño máximo para no verse gigante */
+    height: auto;            /* Mantiene la proporción original */
+    margin-bottom: 10px;     /* Espacio entre la foto y el nombre */
+    transition: transform 0.2s;
+}
+
+.evo-link:hover img {
+    transform: scale(1.1);   /* Efecto de acercamiento al pasar el ratón */
+}
+
+/* Tipografía Press Start 2P para los nombres */
+.evo-link p {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    margin: 0;
+    text-align: center;
+}
+
+.btn-volver {
+    display: inline-block;
+    margin-top: 30px;
+    background-color: red;
+    color: white;
+    padding: 15px;
+    text-decoration: none;
+    border-radius: 10px;
+    border-bottom: 5px solid darkred;
+}
+
+.btn-volver:active {
+    transform: translateY(3px);
+    border-bottom: 2px solid darkred;
+}
+
+/* --- MEDIA QUERIES (ADAPTACIÓN A MÓVILES) --- */
+
+/* Para pantallas de menos de 768px (móviles y tablets verticales) */
+@media screen and (max-width: 768px) {
+    
+    /* PÁGINA DE INICIO (INDEX) */
+    .caja-titulo h1 {
+        font-size: 1.5rem; /* Título más pequeño para que quepa */
+        text-align: center;
+    }
+
+    .pokedex-decorativa {
+        width: 180px; /* Reducimos la Pokédex decorativa */
+    }
+
+    /* PÁGINA DE VISTA (POKEMON_VIEW) */
+    .view-pokemon {
+        padding: 10px;
+    }
+
+    .pokemon-container {
+        padding: 15px;
+    }
+
+    .pokemon-header {
+        flex-direction: column; /* Nombre arriba, número abajo */
+        gap: 10px;
+        text-align: center;
+    }
+
+    .info-principal {
+        flex-direction: column; /* Imagen arriba, descripción abajo */
+        align-items: center;
+        gap: 20px;
+    }
+
+    .sprite-container {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .pokemon-sprite {
+        width: 100%; /* La imagen se adapta a su caja */
+    }
+
+    .detalles {
+        width: 100%;
+        text-align: center;
+    }
+
+    .flex-tipos {
+        justify-content: center; /* Centramos los tipos en el móvil */
+    }
+
+    /* SECCIÓN EVOLUCIONES */
+    .flex-evos {
+        flex-wrap: wrap; /* Si son muchas, que bajen a la siguiente línea */
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .evo-link {
+        width: 40%; /* Dos evoluciones por fila en móviles */
+        min-width: 120px;
+    }
+
+    .evo-link img {
+        max-width: 100px; /* Imágenes más pequeñas en la lista */
+    }
+
+    .evo-link p {
+        font-size: 0.5rem; /* Texto minúsculo para que no rompa el diseño */
+    }
+
+    /* BOTÓN VOLVER */
+    .btn-volver {
+        width: 100%;
+        text-align: center;
+        font-size: 0.6rem;
+    }
+}
+
+/* Para pantallas muy pequeñas (menos de 400px) */
+@media screen and (max-width: 400px) {
+    .evo-link {
+        width: 80%; /* Un Pokémon por fila si el móvil es muy estrecho */
+    }
+}
